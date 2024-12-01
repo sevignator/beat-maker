@@ -19,7 +19,7 @@ function Pad({ position, currentBar }: PadProps) {
       } ${position === currentBar ? 'scale-110' : ''}`}
       onClick={() => setIsActive(!isActive)}
       data-position={position}
-    ></button>
+    />
   );
 }
 
