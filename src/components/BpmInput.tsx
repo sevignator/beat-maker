@@ -14,6 +14,7 @@ export default function BpmInput() {
           value={bpm}
           min={60}
           max={300}
+          step={10}
           onChange={(event) => {
             setBpm(Number.parseInt(event.target.value, 10));
           }}
