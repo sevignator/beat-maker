@@ -10,7 +10,13 @@ interface ControlButtonProps extends React.ComponentProps<'button'> {
 
 function ControlButton({ children, icon: Icon, ...rest }: ControlButtonProps) {
   return (
-    <button {...rest} className='flex gap-2 bg-gray-200 py-2 px-3 rounded-md'>
+    <button
+      {...rest}
+      className='flex gap-2 bg-gray-200 py-2 px-3 rounded-md'
+      onKeyDown={(event) => {
+        event.stopPropagation();
+      }}
+    >
       <Icon />
       {children}
     </button>
