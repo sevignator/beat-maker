@@ -1,9 +1,8 @@
-interface BpmInputProps {
-  bpm: number;
-  setBpm: (newBpm: number) => void;
-}
+import useTempoContext from '../contexts/TempoContext';
 
-export default function BpmInput({ bpm, setBpm }: BpmInputProps) {
+export default function BpmInput() {
+  const { bpm, setBpm } = useTempoContext();
+
   return (
     <div className='flex flex-col items-center max-w-fit'>
       <div>BPM: {bpm}</div>

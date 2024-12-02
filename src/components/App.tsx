@@ -1,31 +1,21 @@
-import React from 'react';
+import Controls from './Controls';
+import Track from './Track';
 
-import Pad from './Pad';
-
-import range from '../functions/range';
-import useAutoCounter from '../hooks/use-auto-counter';
-import BpmInput from './BpmInput';
-
-const BARS_COUNT = 8;
-const BPM = 60;
+import kickSrc from '../sounds/kick.mp3';
+import snareSrc from '../sounds/snare.mp3';
+import hihatSrc from '../sounds/hihat.mp3';
 
 function App() {
-  const [bpm, setBpm] = React.useState(BPM);
-  const currentBar = useAutoCounter(1, BARS_COUNT, 60_000 / bpm);
-
   return (
     <div className='max-w-screen-md mx-auto'>
       <header className='flex justify-between items-center mb-6 py-4'>
-        <h1 className='text-5xl font-bold'>Beat Maker</h1>
-        <BpmInput bpm={bpm} setBpm={setBpm} />
+        <h1 className='text-3xl tracking-tight font-bold'>Beat Maker</h1>
+        <Controls />
       </header>
-      <div className='flex gap-3'>
-        {range(0, BARS_COUNT).map((index) => {
-          const position = index + 1;
-          return (
-            <Pad key={position} position={position} currentBar={currentBar} />
-          );
-        })}
+      <div className='flex flex-col gap-9'>
+        <Track audioSrc={kickSrc} />
+        <Track audioSrc={snareSrc} />
+        <Track audioSrc={hihatSrc} />
       </div>
     </div>
   );
