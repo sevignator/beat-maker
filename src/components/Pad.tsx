@@ -27,9 +27,8 @@ function Pad({ audioSrc, position }: PadProps) {
       <div
         className={`w-24 aspect-square transition-all cursor-pointer rounded-md hover:scale-105 ${
           isActive ? 'bg-violet-700' : 'bg-gray-200'
-        }`}
+        } ${isActive && position === count ? 'scale-105' : 'scale-100'}`}
         onClick={() => setIsActive(!isActive)}
-        data-position={position}
       />
       <audio ref={audioRef} src={audioSrc}></audio>
     </>
