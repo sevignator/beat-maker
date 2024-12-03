@@ -6,7 +6,10 @@ function TimeIndicator() {
   const { count } = useTempoContext();
 
   return (
-    <div className={`grid grid-cols-${BARS_COUNT} gap-3`}>
+    <div
+      className={`grid gap-3`}
+      style={{ gridTemplateColumns: `repeat(${BARS_COUNT}, minmax(0, 1fr))` }}
+    >
       {range(0, BARS_COUNT).map((index) => {
         const position = index + 1;
         return (

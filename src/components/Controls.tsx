@@ -13,7 +13,7 @@ function Controls() {
       {isActive ? (
         <ControlButton
           icon={Pause}
-          className='bg-orange-300'
+          className='bg-orange-200 border-orange-300 text-orange-800'
           onClick={() => {
             if (isActive) pauseCounter();
             else startCounter();
@@ -24,7 +24,7 @@ function Controls() {
       ) : (
         <ControlButton
           icon={Play}
-          className='bg-green-300'
+          className='bg-green-200 border-green-300 text-green-800'
           onClick={() => {
             if (isActive) pauseCounter();
             else startCounter();
