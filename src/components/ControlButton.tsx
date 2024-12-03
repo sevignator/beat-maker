@@ -9,15 +9,16 @@ interface ControlButtonProps extends React.ComponentProps<'button'> {
 }
 
 function ControlButton({ children, icon: Icon, ...rest }: ControlButtonProps) {
+  const classes = `flex items-center gap-1 bg-gray-200 py-2 pl-2 pr-3 rounded-md ${rest.className}`;
   return (
     <button
       {...rest}
-      className='flex gap-2 bg-gray-200 py-2 px-3 rounded-md'
+      className={`${classes}`}
       onKeyDown={(event) => {
         event.stopPropagation();
       }}
     >
-      <Icon />
+      <Icon size={20} />
       {children}
     </button>
   );

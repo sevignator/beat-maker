@@ -1,6 +1,6 @@
 import BpmInput from './BpmInput';
 import ControlButton from './ControlButton';
-import { Pause, Play, Rewind, RotateCcw } from 'lucide-react';
+import { Pause, Play, Rewind } from 'lucide-react';
 
 import useTempoContext from '../contexts/TempoContext';
 
@@ -13,6 +13,7 @@ function Controls() {
       {isActive ? (
         <ControlButton
           icon={Pause}
+          className='bg-orange-300'
           onClick={() => {
             if (isActive) pauseCounter();
             else startCounter();
@@ -23,6 +24,7 @@ function Controls() {
       ) : (
         <ControlButton
           icon={Play}
+          className='bg-green-300'
           onClick={() => {
             if (isActive) pauseCounter();
             else startCounter();
@@ -31,12 +33,8 @@ function Controls() {
           Play
         </ControlButton>
       )}
-
       <ControlButton icon={Rewind} onClick={resetCounter}>
         Restart
-      </ControlButton>
-      <ControlButton icon={RotateCcw} onClick={resetCounter}>
-        Reset
       </ControlButton>
       <BpmInput />
     </div>

@@ -1,4 +1,5 @@
 import Controls from './Controls';
+import TimeIndicator from './TimeIndicator';
 import Track from './Track';
 
 import kickSrc from '../sounds/kick.mp3';
@@ -12,7 +13,8 @@ function App() {
         <h1 className='text-3xl tracking-tight font-bold'>Beat Maker</h1>
         <Controls />
       </header>
-      <div className='flex flex-col gap-9'>
+      <div className='flex flex-col gap-4'>
+        <TimeIndicator />
         <Track audioSrc={kickSrc} />
         <Track audioSrc={snareSrc} />
         <Track audioSrc={hihatSrc} />

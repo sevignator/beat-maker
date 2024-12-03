@@ -1,17 +1,18 @@
 import React from 'react';
+import useTempoContext from '../contexts/TempoContext';
 
 interface PadProps {
   audioSrc: string;
   position: number;
-  currentBar: number;
 }
 
-function Pad({ audioSrc, position, currentBar }: PadProps) {
+function Pad({ audioSrc, position }: PadProps) {
   const [isActive, setIsActive] = React.useState(false);
   const audioRef = React.useRef<HTMLAudioElement>(null);
+  const { count } = useTempoContext();
 
   React.useEffect(() => {
-    if (isActive && position === currentBar) {
+    if (isActive && position === count) {
       const audioEl = audioRef.current;
 
       if (!audioEl) return;
@@ -19,14 +20,14 @@ function Pad({ audioSrc, position, currentBar }: PadProps) {
       audioEl.currentTime = 0;
       audioEl.play();
     }
-  }, [isActive, position, currentBar]);
+  }, [isActive, position, count]);
 
   return (
     <>
       <div
-        className={`w-24 aspect-square transition-transform cursor-pointer ${
-          isActive ? 'bg-violet-700' : 'bg-gray-300'
-        } ${position === currentBar ? 'scale-110' : ''}`}
+        className={`w-24 aspect-square transition-transform cursor-pointer rounded-md hover:scale-110 ${
+          isActive ? 'bg-violet-700' : 'bg-gray-200'
+        }`}
         onClick={() => setIsActive(!isActive)}
         data-position={position}
       />
